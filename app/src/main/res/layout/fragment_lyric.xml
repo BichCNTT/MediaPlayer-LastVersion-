@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.ominext.tablayout.LyricFragment">
+
     <TextView
         android:id="@+id/lyric"
         android:layout_width="match_parent"
