@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
     private int counter = 0;
     int check = 0;
     boolean play = true;//biến ktra xem có cho phép bật hay không
-    int i = 0;
+    int i = -1;
     List<Data> listSong = new ArrayList<>();
     private int position;
 
@@ -88,6 +88,7 @@ public class MainActivity extends AppCompatActivity {
 
         List<Data> list = mySQLiteHelper.getAllSong();
         listSong.addAll(list);
+
     }
 
     public void insertData() {
@@ -373,19 +374,20 @@ public class MainActivity extends AppCompatActivity {
         mediaPlayer = new MediaPlayer();
         if (i == 0) {
             try {
-                mediaPlayer.setDataSource("http://waptrick.one/_common/loadfile.jsp?type=T&id=60977&address=/truetones/mp3_max/Good_Morning_01.mp3");
+                mediaPlayer.setDataSource("http://zmp3-mp3-s1-te-vnso-qt-4.zadn.vn/5dc70f19af5d46031f4c/1011618229764532511?key=ACYQE8o_zzjJC25OSjGjrA&expires=1501744750");
                 mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
                 mediaPlayer.setOnBufferingUpdateListener(onBufferingLoading);//audio load vào bộ đệm và đang load đến phần nào
                 mediaPlayer.setOnPreparedListener(onPrepareAudio);
                 mediaPlayer.prepareAsync();
             } catch (IOException e) {
                 e.printStackTrace();
-                Toast.makeText(getApplicationContext(), "Không load được dữ liệu 1", Toast.LENGTH_LONG).show();
+//                Toast.makeText(getApplicationContext(), "Không load được dữ liệu 1", Toast.LENGTH_LONG).show();
             }
             //Get song link
 
         } else {
             try {
+                title.setText(listSong.get(i).getName());
                 mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
                 mediaPlayer.setDataSource(listSong.get(i).getUrl());
                 //Get song link
