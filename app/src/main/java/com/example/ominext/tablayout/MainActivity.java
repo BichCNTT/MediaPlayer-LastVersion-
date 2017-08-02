@@ -53,7 +53,6 @@ public class MainActivity extends AppCompatActivity {
     Button buttonReplay;
     private TabLayout tabLayout;
     private ViewPager viewPager;
-    Context context;
     LyricFragment fragment;
     //Ở MainActivity thì phải xử lý sự kiện
     //trong các
@@ -69,7 +68,6 @@ public class MainActivity extends AppCompatActivity {
     boolean play = true;//biến ktra xem có cho phép bật hay không
     int i = -1;
     List<Data> listSong = new ArrayList<>();
-    private int position;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
